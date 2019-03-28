@@ -32,7 +32,7 @@ import org.hibernate.validator.constraints.Length;
 @ConstraintComposition(CompositionType.OR)
 @Pattern(regexp = "1[34578]\\d{9}")
 @Null
-@Length(min = 0, max = 0)
+@Length(max = 11)
 @Documented
 @Constraint(validatedBy = {})
 @Target({METHOD, FIELD, CONSTRUCTOR, PARAMETER})

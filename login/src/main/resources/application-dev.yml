@@ -9,7 +9,6 @@ swagger:
   email: fzyszsz@163.com
   version: 1.0
 spring:
-
   # devtools 配置
   devtools:
     livereload:

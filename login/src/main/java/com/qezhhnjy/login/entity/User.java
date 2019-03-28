@@ -51,7 +51,7 @@ public class User {
     @Email(message = "请输入正确的邮箱信息")
     private String email;
 
-    @Column
+    @Column()
     @Phone
     private String phone;
 

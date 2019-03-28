@@ -4,6 +4,7 @@ import com.qezhhnjy.login.entity.User;
 import com.qezhhnjy.login.service.LoginService;
 import com.qezhhnjy.login.service.UserService;
 import com.qezhhnjy.login.util.EncryptUtil;
+import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -12,6 +13,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +28,7 @@ import java.util.Map;
  */
 @Controller
 @Slf4j
+@Api(value = "登录注册接口-value", tags = "登录注册接口-tags", authorizations = @Authorization("qezhhnjy"))
 public class HomeController {
 
     @Resource
@@ -34,33 +37,39 @@ public class HomeController {
     @Resource
     private UserService userService;
 
+    @ApiOperation(value = "首页", notes = "/ 或者 /index 指向的登录后的界面")
     @GetMapping({"/", "/index"})
     public String index() {
         return "index";
     }
 
+    @ApiOperation(value = "403页面", notes = "权限不足时跳转到该页面")
     @GetMapping("/403")
     public String unauthorizedRole() {
         log.warn("-----没有权限-----");
         return "user/403";
     }
 
+    @ApiOperation(value = "登出接口", notes = "登出当前用户，并跳转到登录界面")
     @GetMapping("/logout")
     public String logout() {
         loginService.logout();
         return "login";
     }
 
+    @ApiOperation(value = "登录界面", notes = "初始化的登录界面")
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
+    @ApiOperation(value = "注册界面", notes = "注册新用户的界面")
     @GetMapping("/sign_up")
     public String signUp() {
         return "user/sign_up";
     }
 
+    @ApiOperation(value = "注册信息接口", notes = "传入注册用户信息，进行注册")
     @PostMapping("/sign_up")
     public String signUp(@Valid User user) {
         log.info(String.valueOf(user));
