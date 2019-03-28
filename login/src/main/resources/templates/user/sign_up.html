@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>注册</title>
+</head>
+<body>
+<h1>注册页面</h1>
+<hr/>
+<div>
+  <form th:action="@{/sign_up}" method="post">
+    <div>
+      <span>用户名：</span><input type="text" name="username" placeholder="请输入6-16位用户名"/>
+    </div>
+    <div>
+      <span>密&nbsp;码：</span><input type="password" name="password" placeholder="请输入6-16位密码"/>
+    </div>
+    <div>
+      <span>邮箱</span><input type="email" name="email" placeholder="请输入邮箱地址"/>
+    </div>
+    <div>
+      <input type="reset" value="重置"/>
+      <input type="submit" value="注册"/>
+    </div>
+  </form>
+</div>
+</body>
+</html>
