@@ -1,13 +1,10 @@
 package com.qezhhnjy.login.controller;
 
-import com.baomidou.mybatisplus.core.toolkit.EncryptUtils;
-import com.qezhhnjy.login.common.LoginResult;
 import com.qezhhnjy.login.entity.User;
 import com.qezhhnjy.login.service.LoginService;
 import com.qezhhnjy.login.service.UserService;
 import com.qezhhnjy.login.util.EncryptUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Strings;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -16,14 +13,11 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.Map;
 
 /**

@@ -33,7 +33,6 @@ public class ShiroConfig {
         // 配置不会被拦截的链接 顺序判断，因为前端模板采用了thymeleaf，这里不能直接使用
         // ("/static/**","anon")来配置匿名访问，可以在static目录下加一级目录，然后再配置
         map.put("/doc/**", "anon");
-        map.put("/index", "anon");
         map.put("/sign_up", "anon");
         // 配置退出过滤器 其中的具体的退出代码shiro已经替我们实现了
         map.put("/logout", "logout");
@@ -84,6 +83,7 @@ public class ShiroConfig {
         return advisor;
     }
 
+/*
     @Bean
     public SimpleMappingExceptionResolver resolver() {
         SimpleMappingExceptionResolver resolver = new SimpleMappingExceptionResolver();
@@ -101,4 +101,5 @@ public class ShiroConfig {
         resolver.setWarnLogCategory("example.MvcLogger");
         return resolver;
     }
+*/
 }

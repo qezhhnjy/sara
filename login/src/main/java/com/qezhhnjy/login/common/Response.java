@@ -1,5 +1,8 @@
 package com.qezhhnjy.login.common;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -9,6 +12,8 @@ import java.io.Serializable;
  * create time 19-3-25-下午4:17
  */
 @Data
+@JsonSerialize()
+@JsonInclude(value = JsonInclude.Include.NON_EMPTY)
 public class Response<T> implements Serializable {
     private int status;
     private String message;
@@ -24,7 +29,7 @@ public class Response<T> implements Serializable {
         return this;
     }
 
-//    @JsonIgnore
+    @JsonIgnore
     public boolean isSuccess() {
         return this.status == Info.SUCCESS.status;
     }
