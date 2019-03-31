@@ -4,11 +4,53 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/doc/layui/css/layui.css}"/>
+  <link rel="shortcut icon" th:href="@{/doc/img/favicon.ico}"/>
   <title>用户登录</title>
 </head>
-<body>
-<div>
-  <h3>用户登录</h3>
+<body style="text-align: center">
+<div class="layui-input-inline" style="position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%)">
+  <div><h1 style="color: #393D49;margin-bottom: 10%"><b>用户登录</b></h1></div>
+  <form class="layui-form layui-form-pane" th:action="@{/login}" th:method="post">
+    <div class="layui-form-item">
+      <label class="layui-form-label layui-bg-gray">用户名：</label>
+      <div class="layui-input-inline">
+        <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+               class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label layui-bg-gray">密&nbsp;码：</label>
+      <div class="layui-input-inline">
+        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+               class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10%;">
+      <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">登录</button>
+        <button type="reset" class="layui-btn layui-btn-warm">取消</button>
+        <button class="layui-btn">注册</button>
+      </div>
+    </div>
+</div>
+</form>
+</div>
+
+<script th:src="@{/doc/layui/layui.all.js}" charset="utf-8"></script>
+<script>
+  //Demo
+  layui.use('form', function () {
+    var form = layui.form;
+
+    //监听提交
+    form.on('submit(formDemo)', function (data) {
+      layer.msg(JSON.stringify(data.field));
+      // return false;
+    });
+  });
+</script>
+<!--
   <form th:action="@{/login}" method="post">
     <div>
       <span>用户名：</span><input type="text" name="username" placeholder="请输入用户名称">
@@ -20,6 +62,6 @@
     </div>
   </form>
   <div><p th:text="${error}"></p></div>
-</div>
+-->
 </body>
 </html>

@@ -5,6 +5,9 @@ spring:
     password: 123
   profiles:
     active: dev
+  mvc:
+    favicon:
+      enabled: false
 
 
 server:
