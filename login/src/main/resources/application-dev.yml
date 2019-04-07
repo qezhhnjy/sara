@@ -34,7 +34,7 @@ spring:
 server:
   servlet:
     context-path: /
-  port: 8888
+  port: 8899
 
 
 

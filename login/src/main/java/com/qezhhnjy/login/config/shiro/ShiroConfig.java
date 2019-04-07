@@ -34,6 +34,7 @@ public class ShiroConfig {
         // ("/static/**","anon")来配置匿名访问，可以在static目录下加一级目录，然后再配置
         map.put("/doc/**", "anon");
         map.put("/sign_up", "anon");
+        map.put("/favicon.ico", "anon");
         // 配置退出过滤器 其中的具体的退出代码shiro已经替我们实现了
         map.put("/logout", "logout");
         map.put("/**", "authc");

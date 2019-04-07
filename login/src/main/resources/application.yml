@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sara?useSSL=false
+    url: jdbc:mysql://localhost:3306/sara?useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123
   profiles:
@@ -13,5 +13,4 @@ spring:
 server:
   tomcat:
     uri-encoding: utf-8
-  port: 8888
 
