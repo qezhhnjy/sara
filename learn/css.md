@@ -1885,3 +1885,134 @@ h2{
 <p><b>注意:</b>如果 !DOCTYPE 指定 IE 8 支持 caption-side 属性 .</p>
 </body>
 </html>
+
+---
+
+## 10. CSS 盒子模型
+
+>### **CSS 盒子模型（Box Model）**
+
+所有HTML元素可以看作盒子，在CSS中，“box model”用于设计和布局使用。
+
+CSS盒模型本质上时一个盒子，封装周围的HTML元素，它包括：边距、边框、填充和实际内容。
+
+盒模型允许我们在其他元素和周围元素边框之间的空间放置元素。
+
+**下面的图片说明了盒子模型：**
+
+![盒子模型](http://www.runoob.com/images/box-model.gif)
+
+**不同部分的说明：**
+- **`Margin(外边距)`** - 清除边框外的区域，外边距是透明的。
+- **`Border(边框)`** - 围绕在内边距和内容外的边框。
+- **`Padding(内边距)`** - 清除内容周围的区域，内边框是透明的。
+- **`Content(内容)`** - 盒子的内容，显示文本和图像。
+
+<p style="color:red">为了正确设置元素在所有浏览器中的宽度和高度，你需要知道盒模型是如何工作的。</p>
+
+>### **元素的宽度和高度**
+<strong style="color:red">重要：当您指定一个CSS元素的宽度和高度属性时，你知识设置内容区域的宽度和高度。要知道，完全大小的元素，你还必须添加填充、边框和边距。</strong>
+
+下面的例子中的元素的总宽度是300px：
+```css
+div{
+    width:300px;
+    border:25px solid green;
+    padding:25px;
+    margin:25px;
+}
+```
+总宽度：300 + 25*2 + 25*2 + 25*2 = 450px
+
+>### **浏览器的兼容性问题**
+一旦为页面设置了恰当的 DTD，大多数浏览器都会按照上面的图示来呈现内容。然而 IE 5 和 6 的呈现却是不正确的。根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的。不幸的是，IE5.X 和 6 在怪异模式中使用自己的非标准模型。这些浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和。
+
+虽然有方法解决这个问题。但是目前最好的解决方案是回避这个问题。也就是，不要给元素添加具有指定宽度的内边距，而是尝试将内边距或外边距添加到元素的父元素和子元素。
+
+IE8 及更早IE版本不支持设置填充的宽度和边框的宽度属性。
+
+解决IE8及更早版本不兼容问题可以在HTML页面声明 <!DOCTYPE html>即可。
+
+## 11. CSS 边框
+
+>### **CSS边框属性**
+
+CSS边框属性允许你指定一个元素边框的样式和颜色。
+
+>### **边框样式 border-style**
+
+`border-style`属性用来定义边框的样式。
+**border-style取值：**
+- <p style="border: 1px none #000000;padding:3px">none: 默认无边框</p><br>
+- <p style="border: 1px dotted #000000;padding:3px">dotted: 定义一个点线边框</p><br>
+- <p style="border: 1px dashed #000000;padding:3px">dashed: 定义一个虚线边框</p><br>
+- <p style="border: 1px solid #000000;padding:3px">solid: 定义实线边框</p><br>
+- <p style="border: 3px double #000000;padding:3px">double: 定义两个边框。 两个边框的宽度和 border-width 的值相同</p><br>
+- <p style="border: 5px groove #98bf21;padding:3px">groove: 定义3D沟槽边框。效果取决于边框的颜色值</p><br>
+- <p style="border: 5px ridge #98bf21;padding:3px">ridge: 定义3D脊边框。效果取决于边框的颜色值</p><br>
+- <p style="border: 5px inset #98bf21;padding:3px">inset:定义一个3D的嵌入边框。效果取决于边框的颜色值</p><br>
+- <p style="border: 5px outset #98bf21;padding:3px">outset: 定义一个3D突出边框。 效果取决于边框的颜色值</p><br>
+
+>### **边框宽度 border-width**
+
+通过 `border-width` 属性为边框指定宽度。
+
+为边框指定宽度有两种方法：可以指定长度值，比如2px或0.1em(px、pt、cm、em...)，或者使用3个关键字之一，他们分别是thick、medium（默认值）和thin。
+
+<p style="color:red"> CSS 没有定义 3 个关键字的具体宽度，所以一个用户可能把 thick 、medium 和 thin 分别设置为等于 5px、3px 和 2px，而另一个用户则分别设置为 3px、2px 和 1px。
+
+>### **边框颜色 border-color**
+`border-color`属性用于设置边框的颜色，您还可以设置边框的颜色为"transparent"（透明）。
+<p style="color:red">border-color单独使用时不起作用的，必须得先使用border-style来设置边框样式。
+
+>### **边框-单独设置各边**
+在CSS中，可以指定不同的侧面不同的边框：
+```css
+p{
+    border-top-style:dotted;
+    border-right-style:solid;
+    border-bottom-style:dotted;
+    border-left-style:solid;
+}
+```
+也可以设置一个单一属性：
+```css
+border-style:dotted solid;
+```
+
+`border-style`属性可以有1-4个值：
+1. border-style:dotted solid double dashed; - 👆 👉 👇 👈
+2. border-style:dotted solid double; - 👆 👈👉 👇
+3. border-style:dotted solid; - 👆👇 👈👉
+4. border-style:dotted; - 👆👇👈👉
+
+>### **边框 - 简写属性**
+可以在`border`属性中设置：
+- border-width
+- border-style(required)
+- border-color
+
+>### **CSS 边框属性**
+属性 |	描述
+-|-
+`border` |	简写属性，用于把针对四个边的属性设置在一个声明。
+`border-style` |	用于设置元素所有边框的样式，或者单独地为各边设置边框样式。
+`border-width` |	简写属性，用于为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。
+`border-color` |	简写属性，设置元素的所有边框中可见部分的颜色，或为 4 个边分别设置颜色。
+`border-bottom` |	简写属性，用于把下边框的所有属性设置到一个声明中。
+`border-bottom-color` |	设置元素的下边框的颜色。
+`border-bottom-style` 	|设置元素的下边框的样式。
+`border-bottom-width` |	设置元素的下边框的宽度。
+`border-left` |	简写属性，用于把左边框的所有属性设置到一个声明中。
+`border-left-color` |	设置元素的左边框的颜色。
+`border-left-style` |	设置元素的左边框的样式。
+`border-left-width` |	设置元素的左边框的宽度。
+`border-right` |	简写属性，用于把右边框的所有属性设置到一个声明中。
+`border-right-color` |	设置元素的右边框的颜色。
+`border-right-style`|	设置元素的右边框的样式。
+`border-right-width`| 	设置元素的右边框的宽度。
+`border-top` |	简写属性，用于把上边框的所有属性设置到一个声明中。
+`border-top-color` |	设置元素的上边框的颜色。
+`border-top-style` |	设置元素的上边框的样式。
+`border-top-width` |	设置元素的上边框的宽度。
+`border-radius`| 设置边框的圆角半径
