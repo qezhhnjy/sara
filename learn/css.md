@@ -2016,3 +2016,293 @@ border-style:dotted solid;
 `border-top-style` |	设置元素的上边框的样式。
 `border-top-width` |	设置元素的上边框的宽度。
 `border-radius`| 设置边框的圆角半径
+
+## 12. CSS 轮廓（outline）
+
+轮廓（`outline`）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。
+
+轮廓（`outline`）属性指定元素轮廓的样式、颜色和宽度。
+>### **轮廓实例**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style>
+#outline{
+	border:1px solid red;
+	outline:green dotted thick;
+}
+</style>
+</head>
+
+<body>
+<p id="outline"><b>注意:</b> 如果只有一个 !DOCTYP E指定 IE8 支持 outline 属性。</p>
+<style>
+p.dotted {outline-style:dotted;}
+p.dashed {outline-style:dashed;}
+p.solid {outline-style:solid;}
+p.double {outline-style:double;}
+p.groove {outline-style:groove;}
+p.ridge {outline-style:ridge;}
+p.inset {outline-style:inset;}
+p.outset {outline-style:outset;}
+</style>
+</head>
+<body>
+<p class="dotted">点线轮廓</p>
+<p class="dashed">虚线轮廓</p>
+<p class="solid">实线轮廓</p>
+<p class="double">双线轮廓</p>
+<p class="groove">凹槽轮廓</p>
+<p class="ridge">垄状轮廓</p>
+<p class="inset">嵌入轮廓</p>
+<p class="outset">外凸轮廓</p>
+<p><b>注意:</b> 如果只有一个 !DOCTYPE 指定 IE 8 支持 outline 属性。</p>
+</body>
+</html>
+```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style>
+#outline{
+	border:1px solid red;
+	outline:green dotted thick;
+}
+</style>
+</head>
+
+<body>
+<p id="outline"><b>注意:</b> 如果只有一个 !DOCTYP E指定 IE8 支持 outline 属性。</p>
+<style>
+p.dotted {outline-style:dotted;}
+p.dashed {outline-style:dashed;}
+p.solid {outline-style:solid;}
+p.double {outline-style:double;}
+p.groove {outline-style:groove;}
+p.ridge {outline-style:ridge;}
+p.inset {outline-style:inset;}
+p.outset {outline-style:outset;}
+</style>
+</head>
+<body>
+<p class="dotted">点线轮廓</p>
+<p class="dashed">虚线轮廓</p>
+<p class="solid">实线轮廓</p>
+<p class="double">双线轮廓</p>
+<p class="groove">凹槽轮廓</p>
+<p class="ridge">垄状轮廓</p>
+<p class="inset">嵌入轮廓</p>
+<p class="outset">外凸轮廓</p>
+<p><b>注意:</b> 如果只有一个 !DOCTYPE 指定 IE 8 支持 outline 属性。</p>
+</body>
+</html>
+
+>### **CSS 轮廓（outline）**
+轮廓是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。
+![轮廓](http://www.runoob.com/images/box_outline.gif)
+
+>### **所有CSS 轮廓属性**
+
+属性 |	说明  	|CSS
+-|-|-
+`outline` |	在一个声明中设置所有的轮廓属性 |	2
+`outline-color` |	设置轮廓的颜色 	|2
+`outline-style` |	设置轮廓的样式 	|2
+`outline-width`| 	设置轮廓的宽度 	|2
+
+- `outline` 属性
+
+outline简写属性在一个声明中设置所有的轮廓属性。
+
+可以设置的属性分别是(按顺序):`outline-color`,`outline-style`,`outline-width`.
+
+值 	|描述
+-|-
+`outline-color` |	规定边框的颜色。参阅：outline-color 中可能的值。
+`outline-style` |	规定边框的样式。参阅：outline-style 中可能的值。
+`outline-width` |	规定边框的宽度。参阅：outline-width 中可能的值。
+`inherit` |	规定应该从父元素继承 outline 属性的设置。
+
+- `outline-color` 属性
+
+<b style="color:red">注意:outline是围绕元素.它是围绕元素的边距,但是,它来自不同的边框属性.outline不是元素尺寸的一部分,因此元素的宽度和高度属性不包含轮廓的宽度.</b>
+
+值 |	描述
+-|-
+`color` |	指定轮廓颜色。在 CSS颜色值寻找颜色值的完整列表。
+`invert`	|默认。执行颜色反转（逆向的颜色）。可使轮廓在不同的背景颜色中都是可见。
+`inherit` |	规定应该从父元素继承轮廓颜色的设置。
+
+- `outline-style` 属性
+
+值 |	描述
+-|-
+none |	默认。定义无轮廓。
+dotted |	定义点状的轮廓。
+dashed 	|定义虚线轮廓。
+solid |	定义实线轮廓。
+double |	定义双线轮廓。双线的宽度等同于 outline-width 的值。
+groove |	定义 3D 凹槽轮廓。此效果取决于 outline-color 值。
+ridge |	定义 3D 凸槽轮廓。此效果取决于 outline-color 值。
+inset |	定义 3D 凹边轮廓。此效果取决于 outline-color 值。
+outset |	定义 3D 凸边轮廓。此效果取决于 outline-color 值。
+inherit |	规定应该从父元素继承轮廓样式的设置。
+
+- `outline-width` 属性
+
+值 	|描述
+-|-
+thin 	|规定细轮廓。
+medium 	|默认。规定中等的轮廓。
+thick 	|规定粗的轮廓。
+length 	|允许您规定轮廓粗细的值。
+inherit 	|规定应该从父元素继承轮廓宽度的设置。
+
+---
+
+## 13. CSS margin(外边距)
+`CSS margin 属性定义元素周围的空间`
+
+>### **margin**
+
+margin清除周围的元素区域,margin没有背景颜色,是完全透明的.
+
+margin可以单独改变元素的上,下,左,右边距,也可以一次改变所有的属性.
+![margin](http://www.runoob.com/wp-content/uploads/2013/08/VlwVi.png)
+
+>### **可能的值**
+
+值| 	说明
+-|-
+auto |	设置浏览器边距。这样做的结果会依赖于浏览器
+length |	定义一个固定的margin（使用像素，pt，em等）
+% |	定义一个使用百分比的边距
+<b style="color:red">margin可以使用负值,重叠的内容.</b>
+
+>### **margin - 单边外边距属性**
+```css
+margin-top:100px;
+margin-bottom:100px;
+margin-right:50px;
+margin-left:50px;
+```
+
+>### **margin - 简写属性**
+
+>### **更多实例**
+
+---
+
+## 14. CSS padding
+`padding定义元素边框与元素内容之间的空间`
+
+---
+
+## 15. CSS 分组 和 嵌套 选择器
+
+>### **分组选择器**
+在样式表中有很多具有相同样式的元素.
+
+为了尽量减少代码,你可以使用分组选择器.
+
+每个选择器用逗号分隔:
+```css
+h1,h2,p{
+    color:green;
+}
+```
+
+>### **嵌套选择器**
+它可能适用于选择器内部的选择器的样式.
+
+在下面的例子设置了三个样式:
+```css
+p{
+    color:blue;
+    text-align:center;
+}
+.marked{
+    background-color:red;
+}
+.marked p{
+    color:white;
+}
+p.marked{
+    text-decoration:underline;
+}
+```
+- `p{ }` - 为所有p元素指定一个样式.
+- `.marked{ }` - 为所有 `class="marked"`的元素指定一个样式.
+- `.marked p{ }` - 为所有`class="marked"`元素内的p元素指定一个样式.
+- `p.marked{ }` - 为所有`class="marked"`的p元素指定一个元素.
+
+---
+
+## 16. CSS 尺寸(Dimension)
+**`CSS dimension 属性允许你控制元素的高度和宽度,同样,它允许你增加行间距`**
+
+>### **更多实例**
+
+
+>### **所有CSS 尺寸(Dimension)属性**
+属性 |	描述
+-|-
+`height` 	|设置元素的高度。
+`line-height` |	设置行高。
+`max-height` 	|设置元素的最大高度。
+`max-width` 	|设置元素的最大宽度。
+`min-height` 	|设置元素的最小高度。
+`min-width` |	设置元素的最小宽度。
+`width` |	设置元素的宽度。
+<style>
+    b{
+        color:red
+    }
+</style>
+<b>这个html的效果很奇怪,依赖于对html 和 body 的height:100% 才能产生下图big的伸缩效果.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style>
+html {height:100%;}
+body {height:100%;}
+img.normal {height:auto;}
+img.big {height:40%;}
+img.small {height:10%;}
+</style>
+</head>
+<body>
+<img class="normal" src="http://www.runoob.com/try/demo_source/logocss.gif" width="95" height="84" /><br>
+<img class="big" src="http://www.runoob.com/try/demo_source/logocss.gif" width="95" height="84" /><br>
+<img class="small" src="http://www.runoob.com/try/demo_source/logocss.gif" width="95" height="84" />
+</body>
+</html>
+```
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style>
+html {height:100%;}
+body {height:100%;}
+img.normal {height:auto;}
+img.big {height:40%;}
+img.small {height:10%;}
+</style>
+</head>
+<body>
+<img class="normal" src="http://www.runoob.com/try/demo_source/logocss.gif" width="95" height="84" /><br>
+<img class="big" src="http://www.runoob.com/try/demo_source/logocss.gif" width="95" height="84" /><br>
+<img class="small" src="http://www.runoob.com/try/demo_source/logocss.gif" width="95" height="84" />
+</body>
+</html>
