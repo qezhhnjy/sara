@@ -1,4 +1,4 @@
-package com.qezhhnjy.login.config;
+package com.qezhhnjy.login.config.swagger2;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
