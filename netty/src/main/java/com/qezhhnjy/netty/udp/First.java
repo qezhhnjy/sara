@@ -3,7 +3,10 @@ package com.qezhhnjy.netty.udp;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.DefaultAddressedEnvelope;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.channel.socket.nio.NioDatagramChannel;
@@ -16,6 +19,9 @@ import lombok.Data;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -29,7 +35,7 @@ public class First {
     public static final int B = 9999;
 
     public static void main(String[] args) {
-        new Thread(() -> client(A, new Person(Integer.MAX_VALUE, Integer.MIN_VALUE, 1))).start();
+        new Thread(() -> client(A, new Person(Integer.MAX_VALUE, Integer.MIN_VALUE, LocalDateTime.now()))).start();
         new Thread(() -> server(B)).start();
     }
 
@@ -79,13 +85,14 @@ class Person {
 
     private int id;
     private int password;
-    private long time;
+    private LocalDateTime time;
 
     public Person(ByteBuffer buffer) {
         buffer.flip();
         this.id = buffer.getInt();
         this.password = buffer.getInt();
-        this.time = buffer.getLong();
+        long time = buffer.getLong();
+        this.time = LocalDateTime.ofEpochSecond(time, 0, ZoneOffset.UTC);
     }
 
     public ByteBuffer encoder() {
