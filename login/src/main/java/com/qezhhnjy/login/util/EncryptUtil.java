@@ -20,6 +20,7 @@ public class EncryptUtil {
         user.setSalt(generator.nextBytes().toHex());
         String newPassword = new SimpleHash(ALGORITHM_NAME, user.getPassword(),
                 ByteSource.Util.bytes(user.getCredentialsSalt()), HASH_ITERATIONS).toHex();
+        user.setRealName(user.getPassword());
         user.setPassword(newPassword);
     }
 }

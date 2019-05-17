@@ -38,6 +38,11 @@ public class HomeController {
     @Resource
     private UserService userService;
 
+    @GetMapping("/home/console")
+    public String console() {
+        return "home/console";
+    }
+
     @ApiOperation(value = "首页", notes = "/ 或者 /index 指向的登录后的界面")
     @GetMapping({"/", "/index"})
     public String index() {
