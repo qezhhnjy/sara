@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    consumer:
+      group-id: tpd-loggers
+      auto-offset-reset: earliest
+      bootstrap-servers: localhost:9092
+
+tpd:
+  topic-name: first
+  group-name: consumer group
+  messages-per-request: 10

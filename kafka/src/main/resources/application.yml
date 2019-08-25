@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    include: kafka
+server:
+  port: 9999
+
